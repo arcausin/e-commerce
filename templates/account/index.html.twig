@@ -4,13 +4,10 @@
 
 {% block content %}
     <h1>Mon compte</h1><br/>
-    Bienvenue {{ app.user.firstname }} dans votre compte. C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
+    Bienvenue {{ app.user.firstname }} {{ app.user.lastname }} sur votre espace personnel. C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
     <hr>
     {% if is_granted('ROLE_ADMIN') %}
-    - <a href="{{ path('admin') }}">Vous êtes un administrateur, accéder au backoffice ?</a><br/>
+    <a href="{{ path('admin') }}">Accéder au Backoffice</a><br/>
     {% endif %}
-    - <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a><br/>
-    - Ajouter mes adresses<br/>
-    - Mes commandes
-    <hr>
+    <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a><br/>
 {% endblock %}
